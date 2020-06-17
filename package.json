@@ -1,0 +1,18 @@
+{
+  "name": "apollo-server-express-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-api": "node api-server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "apollo-datasource-rest": "^0.9.2",
+    "apollo-server-express": "^2.14.4",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0"
+  }
+}
