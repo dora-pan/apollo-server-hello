@@ -1,5 +1,4 @@
-# apollo-server-hello
-A hello demo for using apollo-server to build a GraphQL Server.
+# apollo-server-express 示例
 
 ## 安装
 
@@ -21,7 +20,13 @@ npm run start-api
 
 ```
 query getUser {
-  user(id:100) {id,name,branch{name}}
+  user(id: 100) {
+    id
+    name
+    branch {
+      name
+    }
+  }
 }
 ```
 
@@ -31,7 +36,13 @@ query getUser {
 
 ```
 query getUserList {
-  users(name:"高山") {id,name,branch{name}}
+  users(name: "高山") {
+    id
+    name
+    branch {
+      name
+    }
+  }
 }
 ```
 
@@ -41,13 +52,17 @@ query getUserList {
 
 ```
 mutation CreateUser {
-  addUser(id:300,name:"孙倩",mobile:"18657138900") {id,name}
+  addUser(id:300,name:"孙倩",mobile:"18657138900") {
+    id
+    name
+    mobile
+  }
 }
 ```
 
 ### Subscription Schema
 
-订阅服务器通知。执行该查询后，每次执行mutation操作，都会在该窗口接收到新增用户通知。
+订阅服务器通知。执行该查询后，每次执行 mutation 操作，都会在该窗口接收到新增用户通知。
 
 ```
 subscription postCreated {
@@ -58,4 +73,3 @@ subscription postCreated {
   }
 }
 ```
-
