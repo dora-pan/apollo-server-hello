@@ -101,10 +101,11 @@ const server = new ApolloServer({
       addUser: (parent, args, context, info) => {
         const { dataSources } = context;
         const { id, name, mobile } = args;
+        const ret = dataSources.usersAPI.addUser(id, name, mobile);
         pubsub.publish("POST_ADDED", {
-          postAdded: args,
+          postAdded: ret,
         });
-        return dataSources.usersAPI.addUser(id, name, mobile);
+        return ret;
       },
     },
     Subscription: {

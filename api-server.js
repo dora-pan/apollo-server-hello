@@ -12,12 +12,13 @@ app.use(bodyParser.json());
 
 app.use("/api/list", (req, res) => {
   const name = req.query.name;
+  const random = Math.floor(Math.random() * 1000);
   res.status(200).json({
     code: 0,
     message: "successfully.",
     result: [
       {
-        id: 200,
+        id: random,
         name: "高山",
         mobile: "18657138904",
         branch: {
@@ -27,7 +28,7 @@ app.use("/api/list", (req, res) => {
         },
       },
       {
-        id: 101,
+        id: random + 1,
         name: "高山风",
         mobile: "18657138901",
         branch: {
@@ -37,7 +38,7 @@ app.use("/api/list", (req, res) => {
         },
       },
       {
-        id: 102,
+        id: random + 2,
         name: "高山松",
         mobile: "18657138902",
         branch: {
@@ -47,7 +48,7 @@ app.use("/api/list", (req, res) => {
         },
       },
       {
-        id: 103,
+        id: random + 3,
         name: "严高山",
         mobile: "18657138903",
         branch: {
@@ -57,7 +58,7 @@ app.use("/api/list", (req, res) => {
         },
       },
       {
-        id: 104,
+        id: random + 4,
         name: "钟高山",
         mobile: "18657138904",
         branch: {
@@ -72,21 +73,23 @@ app.use("/api/list", (req, res) => {
 
 app.use("/api/add", (req, res, next) => {
   const { id, name, mobile } = req.body;
+  const random = Math.floor(Math.random() * 1000);
   res.status(200).json({
     code: 0,
     message: "successfully",
     result: {
       id,
-      name,
+      name: name + random,
       mobile,
     },
   });
 });
 
 app.get("/api/:id", (req, res, next) => {
+  const random = Math.floor(Math.random() * 1000);
   res.status(200).json({
     id: req.params.id,
-    name: "高山",
+    name: "高山" + random,
     mobile: "18657138904",
     branch: {
       id: 4001001,
